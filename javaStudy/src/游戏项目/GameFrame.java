@@ -18,15 +18,18 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.RepaintManager;
 
+
 public class GameFrame extends JPanel implements KeyListener{
 
-	int titleHight=0;
+	static Image bg=GameUtils.getImage("images/bg.jpg");
+	static final int MAIN_WIDTH=bg.getWidth(null);
+	static final int MAIN_HEIGHT=bg.getHeight(null);
 	int x=100,y=100;
-	Image bg=GameUtils.getImage("images/bg.jpg");
+	
 	Image myplane1=GameUtils.getImage("images/myplane1.png");
 	//GameObject obj=new GameObject(myplane1,100, 100);
-	
-	public void luanchGameFrame() {
+	GameObject2 ga2=new GameObject2(100, 100, 20, 20);
+	public GameFrame() {
 		// TODO Auto-generated constructor stub
 		//this.setTitle("打飞机");
 		this.setVisible(true);
@@ -56,7 +59,7 @@ public class GameFrame extends JPanel implements KeyListener{
 //				
 //			}
 //		});
-		this.addKeyListener(new GameMonitor());
+	//	this.addKeyListener(new GameMonitor());
 		new PaintThread().start();
 	}
 	
@@ -73,7 +76,9 @@ public class GameFrame extends JPanel implements KeyListener{
 //		g.drawString("fdfdffs", 100, 100);
 	//	g.fillArc(0, 0, 100, 100, 30, 90);
 		g.drawImage(bg,0,0,null );
-		g.drawImage(myplane1,x,y,null );
+		ga2.drawSelf(g);
+		
+//		g.drawImage(myplane1,x,y,null );
 	}
 	private Image offScreenImage=null;
 	@Override
@@ -101,29 +106,13 @@ public class GameFrame extends JPanel implements KeyListener{
 		@Override
 		public void keyPressed(KeyEvent e) {
 			// TODO Auto-generated method stub
-			switch(e.getKeyCode()) {
-				case KeyEvent.VK_W:
-					y--;
-				break;
-				case KeyEvent.VK_S:
-					y++;
-				break;
-				case KeyEvent.VK_A:
-					x--;
-				break;
-				case KeyEvent.VK_D:
-					x++;
-				break;
-			}	
+			
 		}
 
 		@Override
 		public void keyReleased(KeyEvent e) {
 			// TODO Auto-generated method stub
-			switch(e.getKeyCode()) {
-			case KeyEvent.VK_W:
-			break;
-		}
+			
 		}
 		
 	}
@@ -151,20 +140,36 @@ public class GameFrame extends JPanel implements KeyListener{
 		// TODO Auto-generated method stub
 		GameFrame gf=new GameFrame();
 		
-		JFrame ff=new JFrame();
-		ff.setContentPane(gf);
-		ff.setVisible(true);
-		ff.setBounds(0, 0, 1000, 1000);
-		ff.addKeyListener(gf);
-		gf.setFocusable(true);
-		gf.luanchGameFrame();
-		Class zz = null;
-		try {
-			zz = Class.forName("游戏项目.GameFrame$GameMonitor");
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		JFrame ff=new JFrame();
+//		ff.setContentPane(gf);
+//		ff.setVisible(true);
+//		ff.setBounds(0, 0, 1000, 1000);
+//		ff.addKeyListener(gf);
+//		gf.setFocusable(true);
+		//System.out.println(MAIN_WIDTH+""+MAIN_HEIGHT+""+(MAIN_HEIGHT+f.getInsets().top));
+//		Main roverMap=new Main();
+//		f.setContentPane(roverMap);
+//		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		f.setLocationRelativeTo(null);
+		
+		JFrame f=new JFrame("打飞机");
+		f.setVisible(true);
+		f.setSize(MAIN_WIDTH, MAIN_HEIGHT+f.getInsets().top);
+		f.setContentPane(gf);
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		f.setLocationRelativeTo(null);
+		f.addKeyListener(gf);
+
+	
+		
+		
+//		Class zz = null;
+//		try {
+//			zz = Class.forName("游戏项目.GameFrame$GameMonitor");
+//		} catch (ClassNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 //		System.out.println(zz);
 //		for (Method string : zz.getMethods()) {
 //			System.out.println(string.getName());
@@ -182,20 +187,7 @@ public class GameFrame extends JPanel implements KeyListener{
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		switch(e.getKeyCode()) {
-		case KeyEvent.VK_W:
-			y--;
-		break;
-		case KeyEvent.VK_S:
-			y++;
-		break;
-		case KeyEvent.VK_A:
-			x--;
-		break;
-		case KeyEvent.VK_D:
-			x++;
-		break;
-		}
+		ga2.ObjectMove(e);
 	}
 
 

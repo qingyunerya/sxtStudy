@@ -9,9 +9,9 @@ import java.awt.event.KeyEvent;
 
 public class GameObject{
 
-	static final int OBJECT_SPEED=10;
-	static final int OBJECT_WIDTH=10;
-	static final int OBJECT_HEIGHT=10;
+	static final int OBJECT_SPEED=0;
+	static final int OBJECT_WIDTH=0;
+	static final int OBJECT_HEIGHT=0;
 	static final int OBJECT_DEGREE=0;
 	int x;
 	int y;
@@ -57,6 +57,7 @@ public class GameObject{
 		this.width = width;
 		this.height = height;
 		this.speed = speed;
+		this.degree=degree;
 	}
 	public GameObject(Image img,int x, int y,int speed,int degree) {
 		super();
