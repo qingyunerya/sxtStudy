@@ -40,8 +40,31 @@ public class BigString{
 		return list;
 		
 	}
-	
+private static List<List<Integer>> runn(String input){
+		
+		List<List<Integer>> list=new ArrayList<List<Integer>>();
+		List<Integer> li = null;
+		int start=0;int end=0;
+		for(int i=0;i<input.length()-1;i++)
+		{
+			start=i;
+			while(input.charAt(i)==input.charAt(i+1)) {
+				i++;
+				if(i==(input.length()-1))break;
+//				i++;
+			}
+			end=i;
+			if(end-start+1>=3) {
+				li = new ArrayList<Integer>();
+				li.add(start);
+				li.add(end);
+				list.add(li);
+			}
+		}
+		return list;
+		
+	}
 	public static void main(String[] args) {
-		System.out.println(run("ÄãÄãÄãÎÒÎÒÎÒ¸¡¶¯Ì¤Ì¤Ì¤Ì¤½Ó½ü·ôÉ«Ì¤·´·´¸´¸´·³·³·³·¨·³·³·´·´¸´¸´·³·³·³·³·³·³·³·³·³·³·³·³·³·³·³"));
+		System.out.println(run("ÄãÄãÄãÎÒÎÒÎÒÎÒÎÒÎÒ"));
 	}
 }
