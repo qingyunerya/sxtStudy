@@ -11,6 +11,7 @@ public class LombokTest{
 		//a add
 		//b add
 		//b add
-		
+		//a add
+		//d add
 	}
 }
