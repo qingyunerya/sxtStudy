@@ -10,5 +10,6 @@ public class LombokTest{
 		System.out.println(dataObject);
 		//b add
 		//a add 2
+		//a add 3
 	}
 }
