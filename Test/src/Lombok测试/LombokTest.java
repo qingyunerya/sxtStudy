@@ -9,19 +9,6 @@ public class LombokTest{
 		.password("123456").build();
 		System.out.println(dataObject);
 		//b add
-		//b add 2
-		//b add 3
-		//a add 2
-		//a add 3
-		//a add 2
-		//a add 3
-		//a add 2
-		//a add 3
-		//a add 2
-		//a add 3
-		//a add 2
-		//a add 3
-		//a add 2
-		//a add 3
+		
 	}
 }
