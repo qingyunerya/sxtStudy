@@ -9,5 +9,6 @@ public class LombokTest{
 		.password("123456").build();
 		System.out.println(dataObject);
 		//b add
+		//b add 2
 	}
 }
