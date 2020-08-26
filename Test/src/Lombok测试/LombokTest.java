@@ -14,5 +14,6 @@ public class LombokTest{
 		//a add
 		//d add
 		//c add
+		// ad  
 	}
 }
